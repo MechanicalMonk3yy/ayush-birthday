@@ -9,27 +9,27 @@
    ====================================================== */
 const VIDEOS = [
   {
-    from: "A message from Friend 1",
-    url:  "https://www.youtube.com/embed/VIDEO_URL_1"
+    from: "A message from Anshika from B-7??",
+    url:  "https://www.youtube.com/embed/om9sNzUwO8Q"
   },
   {
-    from: "A message from Friend 2",
-    url:  "https://www.youtube.com/embed/VIDEO_URL_2"
+    from: "A message from SAMVRUTHTTHTH from dmart miyapur",
+    url:  "https://www.youtube.com/embed/FrBujkTMzSE"
   },
   {
-    from: "A message from Friend 3",
-    url:  "https://www.youtube.com/embed/VIDEO_URL_3"
+    from: "A message from Laasya from priya meka",
+    url:  "https://www.youtube.com/embed/wiA2DU4J8U8"
   },
   {
-    from: "A message from Friend 4",
-    url:  "https://www.youtube.com/embed/VIDEO_URL_4"
+    from: "A message from Mridini 96 chemistry",
+    url:  "https://www.youtube.com/embed/VJK3cnmc9D4"
   },
   {
-    from: "A message from Friend 5",
-    url:  "https://www.youtube.com/embed/VIDEO_URL_5"
+    from: "A message from Yashaswin from banglore",
+    url:  "https://www.youtube.com/embed/emRCXSlxBO0"
   },
   {
-    from: "A message from Friend 6",
+    from: "A message from random person",
     url:  "https://www.youtube.com/embed/VIDEO_URL_6"
   }
 ];
