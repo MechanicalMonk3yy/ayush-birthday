@@ -148,6 +148,42 @@
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <script>
+const VIDEOS = [
+  { from: "A message from Anshika from B-7??", url: "https://www.youtube.com/embed/om9sNzUwO8Q" },
+  { from: "A message from SAMVRUTHTTHTH from dmart miyapur", url: "https://www.youtube.com/embed/FrBujkTMzSE" },
+  { from: "A message from Laasya from priya meka", url: "https://www.youtube.com/embed/wiA2DU4J8U8" },
+  { from: "A message from Mridini 96 chemistry", url: "https://www.youtube.com/embed/VJK3cnmc9D4" },
+  { from: "A message from Yashaswin from banglore", url: "https://www.youtube.com/embed/emRCXSlxBO0" },
+  { from: "A message from random person", url: "https://www.youtube.com/embed/VIDEO_URL_6" }
+];
+
+const modal     = document.getElementById('modal');
+const frame     = document.getElementById('video-frame');
+const fromLabel = document.getElementById('modal-from');
+
+function openVideo(index) {
+  const v = VIDEOS[index];
+  if (!v) return;
+  fromLabel.textContent = v.from;
+  frame.src = v.url + '?autoplay=1&rel=0';
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideo() {
+  modal.classList.remove('open');
+  frame.src = '';
+  document.body.style.overflow = '';
+}
+
+function closeOnOverlay(e) {
+  if (e.target === modal) closeVideo();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeVideo();
+});
+</script>
 </body>
 </html>
