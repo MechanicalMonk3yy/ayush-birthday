@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Ayush 🎂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Star field canvas -->
+  <canvas id="stars"></canvas>
+
+  <!-- Floating particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-label">a molecule of love, from your people</div>
+    <h1 class="title">Happy Birthday</h1>
+    <div class="name-wrap">
+      <span class="name-line"></span>
+      <h2 class="name">Ayush</h2>
+      <span class="name-line"></span>
+    </div>
+    <p class="subtitle">Six friends. Six messages. One ring to bond them all.</p>
+  </header>
+
+  <!-- Benzene molecule -->
+  <main class="molecule-section" aria-label="Interactive benzene molecule">
+    <div class="molecule-wrap">
+      <svg class="benzene-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-label="Benzene ring with 6 interactive carbon atoms">
+
+        <!-- Outer glow ring -->
+        <circle cx="300" cy="300" r="175" class="outer-glow-ring" />
+
+        <!-- Inner dashed aromatic ring -->
+        <circle cx="300" cy="300" r="110" class="aromatic-ring" />
+
+        <!-- Bond lines (hexagon edges) -->
+        <g class="bonds">
+          <line x1="300" y1="125" x2="451" y2="212" />
+          <line x1="451" y1="212" x2="451" y2="388" />
+          <line x1="451" y1="388" x2="300" y2="475" />
+          <line x1="300" y1="475" x2="149" y2="388" />
+          <line x1="149" y1="388" x2="149" y2="212" />
+          <line x1="149" y1="212" x2="300" y2="125" />
+        </g>
+
+        <!-- Carbon atom nodes — each is a clickable group -->
+        <!-- Atom 1 — top -->
+        <g class="atom" data-index="0" tabindex="0" role="button" aria-label="Friend 1 video message" onclick="openVideo(0)">
+          <circle class="atom-outer" cx="300" cy="125" r="36" />
+          <circle class="atom-inner" cx="300" cy="125" r="24" />
+          <circle class="atom-pulse" cx="300" cy="125" r="36" />
+          <text class="atom-label" x="300" y="121">C</text>
+          <text class="atom-num" x="300" y="136">1</text>
+          <text class="atom-hint" x="300" y="75">▶ play</text>
+        </g>
+
+        <!-- Atom 2 — top-right -->
+        <g class="atom" data-index="1" tabindex="0" role="button" aria-label="Friend 2 video message" onclick="openVideo(1)">
+          <circle class="atom-outer" cx="451" cy="212" r="36" />
+          <circle class="atom-inner" cx="451" cy="212" r="24" />
+          <circle class="atom-pulse" cx="451" cy="212" r="36" />
+          <text class="atom-label" x="451" y="208">C</text>
+          <text class="atom-num" x="451" y="223">2</text>
+          <text class="atom-hint" x="510" y="216">▶ play</text>
+        </g>
+
+        <!-- Atom 3 — bottom-right -->
+        <g class="atom" data-index="2" tabindex="0" role="button" aria-label="Friend 3 video message" onclick="openVideo(2)">
+          <circle class="atom-outer" cx="451" cy="388" r="36" />
+          <circle class="atom-inner" cx="451" cy="388" r="24" />
+          <circle class="atom-pulse" cx="451" cy="388" r="36" />
+          <text class="atom-label" x="451" y="384">C</text>
+          <text class="atom-num" x="451" y="399">3</text>
+          <text class="atom-hint" x="510" y="392">▶ play</text>
+        </g>
+
+        <!-- Atom 4 — bottom -->
+        <g class="atom" data-index="3" tabindex="0" role="button" aria-label="Friend 4 video message" onclick="openVideo(3)">
+          <circle class="atom-outer" cx="300" cy="475" r="36" />
+          <circle class="atom-inner" cx="300" cy="475" r="24" />
+          <circle class="atom-pulse" cx="300" cy="475" r="36" />
+          <text class="atom-label" x="300" y="471">C</text>
+          <text class="atom-num" x="300" y="486">4</text>
+          <text class="atom-hint" x="300" y="530">▶ play</text>
+        </g>
+
+        <!-- Atom 5 — bottom-left -->
+        <g class="atom" data-index="4" tabindex="0" role="button" aria-label="Friend 5 video message" onclick="openVideo(4)">
+          <circle class="atom-outer" cx="149" cy="388" r="36" />
+          <circle class="atom-inner" cx="149" cy="388" r="24" />
+          <circle class="atom-pulse" cx="149" cy="388" r="36" />
+          <text class="atom-label" x="149" y="384">C</text>
+          <text class="atom-num" x="149" y="399">5</text>
+          <text class="atom-hint" x="90" y="392">▶ play</text>
+        </g>
+
+        <!-- Atom 6 — top-left -->
+        <g class="atom" data-index="5" tabindex="0" role="button" aria-label="Friend 6 video message" onclick="openVideo(5)">
+          <circle class="atom-outer" cx="149" cy="212" r="36" />
+          <circle class="atom-inner" cx="149" cy="212" r="24" />
+          <circle class="atom-pulse" cx="149" cy="212" r="36" />
+          <text class="atom-label" x="149" y="208">C</text>
+          <text class="atom-num" x="149" y="223">6</text>
+          <text class="atom-hint" x="90" y="216">▶ play</text>
+        </g>
+
+        <!-- Center label -->
+        <text class="center-label" x="300" y="293">C₆H₆</text>
+        <text class="center-sub" x="300" y="315">benzene</text>
+
+      </svg>
+
+      <!-- Orbiting electron -->
+      <div class="electron-orbit">
+        <div class="electron"></div>
+      </div>
+
+      <p class="tap-hint">tap any carbon atom to watch a message</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>with love &amp; delocalized electrons ⬡</p>
+  </footer>
+
+  <!-- Video Modal -->
+  <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-label="Video message" onclick="closeOnOverlay(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeVideo()" aria-label="Close video">&times;</button>
+      <div class="modal-from" id="modal-from"></div>
+      <div class="video-wrap">
+        <iframe id="video-frame"
+          src=""
+          title="Birthday video message"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
