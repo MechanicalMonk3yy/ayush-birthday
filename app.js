@@ -1,12 +1,3 @@
-/* ======================================================
-   CONFIGURATION — paste your YouTube links here
-   Replace each VIDEO_URL_X with your YouTube embed URL.
-   
-   How to get the embed URL from a YouTube video:
-   Regular link:  https://www.youtube.com/watch?v=XXXXXXXXXXX
-   Embed link:    https://www.youtube.com/embed/XXXXXXXXXXX
-   (just swap "watch?v=" for "embed/")
-   ====================================================== */
 const VIDEOS = [
   {
     from: "A message from Anshika from B-7??",
@@ -33,6 +24,34 @@ const VIDEOS = [
     url:  "https://www.youtube.com/embed/VIDEO_URL_6"
   }
 ];
+
+/* ===== VIDEO MODAL ===== */
+const modal     = document.getElementById('modal');
+const frame     = document.getElementById('video-frame');
+const fromLabel = document.getElementById('modal-from');
+
+function openVideo(index) {
+  const v = VIDEOS[index];
+  if (!v) return;
+  fromLabel.textContent = v.from;
+  frame.src = v.url + '?autoplay=1&rel=0';
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideo() {
+  modal.classList.remove('open');
+  frame.src = '';
+  document.body.style.overflow = '';
+}
+
+function closeOnOverlay(e) {
+  if (e.target === modal) closeVideo();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeVideo();
+});
 
 /* ===== STAR FIELD ===== */
 (function initStars() {
@@ -103,49 +122,3 @@ const VIDEOS = [
     container.appendChild(p);
   }
 })();
-
-/* ===== KEYBOARD SUPPORT FOR ATOMS ===== */
-document.querySelectorAll('.atom').forEach((atom, i) => {
-  atom.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      openVideo(i);
-    }
-  });
-});
-
-/* ===== VIDEO MODAL ===== */
-const modal     = document.getElementById('modal');
-const frame     = document.getElementById('video-frame');
-const fromLabel = document.getElementById('modal-from');
-
-function openVideo(index) {
-  const v = VIDEOS[index];
-  if (!v) return;
-
-  fromLabel.textContent = v.from;
-  frame.src = v.url + '?autoplay=1&rel=0';
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-
-  // Ripple effect on the clicked atom
-  const atom = document.querySelector(`.atom[data-index="${index}"]`);
-  if (atom) {
-    atom.classList.add('clicked');
-    setTimeout(() => atom.classList.remove('clicked'), 600);
-  }
-}
-
-function closeVideo() {
-  modal.classList.remove('open');
-  frame.src = '';
-  document.body.style.overflow = '';
-}
-
-function closeOnOverlay(e) {
-  if (e.target === modal) closeVideo();
-}
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeVideo();
-});
